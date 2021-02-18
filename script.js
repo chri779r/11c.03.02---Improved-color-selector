@@ -28,9 +28,9 @@ function randomBackground() {
   document.querySelector("#color").style.backgroundColor = theString;
 }
 function randomColor() {
-  const r = Math.floor(Math.random() * 255);
-  const g = Math.floor(Math.random() * 255);
-  const b = Math.floor(Math.random() * 255);
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
   return { r, g, b };
 }
 function rgbToCss(theColor) {
@@ -57,7 +57,7 @@ function hextorgb(hex) {
   const toG = hex.substring(3, 5);
   const toB = hex.substring(5, 7);
 
-  const r = Number.parseInt(toR, 16);
+  const r = Number.parseInt(toR, 16).padStart(2, "0");
   const g = Number.parseInt(toG, 16);
   const b = Number.parseInt(toB, 16);
 
