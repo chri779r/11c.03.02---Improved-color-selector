@@ -1,31 +1,49 @@
 "use strict";
 
-document.querySelector("input").addEventListener("input", init);
+document.querySelector("#colorpicker").addEventListener("input", init);
 
 function init() {
-  const input = document.querySelector("input").value;
+  const input = document.querySelector("#colorpicker").value;
   console.log(input);
   let rgbObject = hextorgb(input);
   console.log(rgbObject);
 
   let rgbShow = convert(rgbObject);
-  showRgb(rgbShow);
-
   const theShow = rgbToCss(rgbObject);
-  changeBack(theShow);
-
   let finalHex = toHex(rgbObject);
-  showHex(finalHex);
-
   let finalHsl = toHls(rgbObject);
-  showHsl(finalHsl);
+  console.log(finalHex);
+
+  for (let index = 1; index <= 5; index++) {
+    showRgb(rgbShow, index);
+    changeBack(theShow, index);
+    showHex(finalHex, index);
+    showHsl(finalHsl, index);
+  }
 }
+
+function showRgb(rgb, index) {
+  document.querySelector(`#colorinfo${index} .rgb .value`).textContent = rgb;
+}
+
+function showHex(hexcode, index) {
+  document.querySelector(`#colorinfo${index} .hexcode .value`).textContent = hexcode;
+}
+
+function showHsl(hsl, index) {
+  document.querySelector(`#colorinfo${index} .hsl .value`).textContent = hsl;
+}
+
+function changeBack(change, index) {
+  document.querySelector(`#colorinfo${index} .colorbox`).style.backgroundColor = change;
+}
+
 randomBackground();
 
 function randomBackground() {
   const theColor = randomColor();
   const theString = rgbToCss(theColor);
-  document.querySelector("#color").style.backgroundColor = theString;
+  document.querySelector(".colorbox").style.backgroundColor = theString;
 }
 function randomColor() {
   const r = Math.floor(Math.random() * 256);
@@ -37,19 +55,6 @@ function rgbToCss(theColor) {
   const finalString = "rgb(" + theColor.r.toString() + ", " + theColor.g.toString() + ", " + theColor.b.toString() + ")";
   console.log(finalString);
   return finalString;
-}
-
-function showRgb(rgb) {
-  document.querySelector("#rgb").textContent = rgb;
-}
-function showHex(hex) {
-  document.querySelector("#hexcode").textContent = hex;
-}
-function showHsl(hsl) {
-  document.querySelector("#hsl").textContent = hsl;
-}
-function changeBack(change) {
-  document.querySelector("#color").style.backgroundColor = change;
 }
 
 function hextorgb(hex) {

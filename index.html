@@ -8,17 +8,54 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <section id="container">
-  <div>
-  <div id="color"></div>
-  <div id="inputContainer">
-    <p>Pick your color here :</p>
-    <input type="color" />
-  </div>
-  <p id="hexcode"></p>
-  <p id="rgb"></p>
-  <p id="hsl"></p>
-</section>
+    <h1>Color selector</h1>
+    <div id="harmonies">
+      <label><input type="radio" name="harmony" value="analogous" />Analogous</label>
+      <label><input type="radio" name="harmony" value="monochromatic" />Monochromatic</label>
+      <label><input type="radio" name="harmony" value="triad" />Triad</label>
+      <label><input type="radio" name="harmony" value="complementary" />Complementary</label>
+      <label><input type="radio" name="harmony" value="compound" />Compound</label>
+      <label><input type="radio" name="harmony" value="shades" />Shades</label>
+    </div>
+
+    <label id="pickholder">
+      <h2>Pick the basecolor:</h2>
+      <input type="color" id="colorpicker" />
+    </label>
+
+    <div id="colors">
+      <div id="colorinfo1">
+        <div class="colorbox"></div>
+        <div class="hexcode"><span class="value"></span></div>
+        <div class="rgb"><span class="value"></span></div>
+        <div class="hsl"><span class="value"></span></div>
+      </div>
+      <div id="colorinfo2">
+        <div class="colorbox"></div>
+        <div class="hexcode"><span class="value"></span></div>
+        <div class="rgb"><span class="value"></span></div>
+        <div class="hsl"><span class="value"></span></div>
+      </div>
+      <div id="colorinfo3">
+        <div class="colorbox"></div>
+        <div class="hexcode"><span class="value"></span></div>
+        <div class="rgb"><span class="value"></span></div>
+        <div class="hsl"><span class="value"></span></div>
+      </div>
+      <div id="colorinfo4">
+        <div class="colorbox"></div>
+        <div class="hexcode"><span class="value"></span></div>
+        <div class="rgb"><span class="value"></span></div>
+        <div class="hsl"><span class="value"></span></div>
+      </div>
+      <div id="colorinfo5">
+        <div class="colorbox"></div>
+        <div class="hexcode"><span class="value"></span></div>
+        <div class="rgb"><span class="value"></span></div>
+        <div class="hsl"><span class="value"></span></div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
