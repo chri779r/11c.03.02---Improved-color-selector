@@ -57,7 +57,7 @@ function hextorgb(hex) {
   const toG = hex.substring(3, 5);
   const toB = hex.substring(5, 7);
 
-  const r = Number.parseInt(toR, 16).padStart(2, "0");
+  const r = Number.parseInt(toR, 16);
   const g = Number.parseInt(toG, 16);
   const b = Number.parseInt(toB, 16);
 
@@ -66,9 +66,9 @@ function hextorgb(hex) {
 }
 
 function toHex(rgbObject) {
-  const hexR = rgbObject.r.toString(16);
-  const hexG = rgbObject.g.toString(16);
-  const hexB = rgbObject.b.toString(16);
+  const hexR = rgbObject.r.toString(16).padStart(2, "0");
+  const hexG = rgbObject.g.toString(16).padStart(2, "0");
+  const hexB = rgbObject.b.toString(16).padStart(2, "0");
 
   const hex = "#" + hexR + hexG + hexB;
   console.log(hex);
@@ -129,5 +129,5 @@ function toHls(rgbObject) {
   l *= 100;
 
   console.log("hsl(%f,%f%,%f%)", h, s, l); // just for testing
-  return "hsl(" + h.toFixed(2) + "%," + s.toFixed(2) + "%," + l.toFixed(2) + "%)";
+  return "hsl(" + h.toFixed() + "%," + s.toFixed() + "%," + l.toFixed() + "%)";
 }
